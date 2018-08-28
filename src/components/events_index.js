@@ -10,11 +10,15 @@ class EventsIndex extends Component {
     this.props.readEvents()
   }
   renderEvents() {
-    return _.map(this.props.events, events =>(
-      <tr key={events.id}>
-        <td>{events.id}</td>
-        <td>{events.title}</td>
-        <td>{events.body}</td>
+    return _.map(this.props.events, event =>(
+      <tr key={event.id}>
+        <td>{event.id}</td>
+        <td>
+          <Link to={`/events/${event.id}`}>
+            {event.title}
+          </Link>
+        </td>
+        <td>{event.body}</td>
       </tr>
     ))
   }
